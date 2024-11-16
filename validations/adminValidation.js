@@ -14,7 +14,7 @@ const adminValidation = zod.object({
       .max(100, "The maximum length of password should be 100"),
     users: zod
       .array(
-        zod.object({
+        zod.string({
           iid: zod
             .string()
             .regex(/^[0-9a-fA-F]{24}$/, "Invalid ObjectId format for iid"),

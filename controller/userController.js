@@ -1,4 +1,4 @@
-const userModel = require("../model/userModel");
+const users = require("../model/UserModel.js");
 const bcrypt = require("bcryptjs");
 const {
   sendMail,
@@ -7,9 +7,9 @@ const {
 } = require("../utils/mailer");
 
 exports.signup = async (req, res) => {
-  const user = new userModel(req.body);
+  const user = new usermodel(req.body);
 
-  userModel
+  users
     .findOne({ email: req.body.email })
     .then((data) => {
       if (data == undefined || data == null) {
@@ -52,7 +52,7 @@ exports.signup = async (req, res) => {
     });
 };
 exports.getAllUsers = async (req, res) => {
-  await userModel
+  await users
     .find()
     .then((data) => {
       res.json({
@@ -74,8 +74,10 @@ exports.getUserById = async (req, res) => {
   const id = req.params.id;
   console.log("Getting User for id => ", id);
 
-  await userModel
+  await users
     .findById({ _id: id })
+    .populate("assignmentId")
+    .populate("adminId")
     .then((data) => {
       res.json({
         message: "User By Id",
@@ -96,7 +98,7 @@ exports.updateUserById = async (req, res) => {
   const id = req.params.id;
   console.log("Getting User for id => ", id);
   const update = req.body;
-  await userModel
+  await users
     .findByIdAndUpdate({ _id: id }, update, { new: true })
     .then((data) => {
       res.json({
@@ -119,8 +121,7 @@ exports.login = async (req, res) => {
   console.log("under login..");
   const { email, password } = req.body;
 
-  // Find astrologer by email
-  await userModel
+  await users
     .findOne({ email })
     .then((user) => {
       if (!user) {
