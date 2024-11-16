@@ -1,4 +1,4 @@
-const users = require("../model/UserModel.js");
+const users = require("../model/UserModel");
 const bcrypt = require("bcryptjs");
 const {
   sendMail,
