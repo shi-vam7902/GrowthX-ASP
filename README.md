@@ -18,7 +18,7 @@ Ensure you have the following installed:
 ### Steps to Run the Project
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/shi-vam7902/GrowthX-ASP
    cd AssignmentSubmissionPortal
    ```
 
