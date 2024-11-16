@@ -1,6 +1,5 @@
 const assignmentmodel = require("../model/AssignmentModel");
-// const statusModel = require("../model/StatusModel");
-// const userModel = require("../model/UserModel");
+
 exports.creatAssignment = async (req, res) => {
   const assignment = new assignmentmodel(req.body);
   console.log("request Body", req.body);

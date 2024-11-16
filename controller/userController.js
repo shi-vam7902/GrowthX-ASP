@@ -7,7 +7,7 @@ const {
 } = require("../utils/mailer");
 
 exports.signup = async (req, res) => {
-  const user = new usermodel(req.body);
+  const user = new users(req.body);
 
   users
     .findOne({ email: req.body.email })
@@ -118,7 +118,6 @@ exports.updateUserById = async (req, res) => {
 };
 // console.log("Update User By Id called")
 exports.login = async (req, res) => {
-  console.log("under login..");
   const { email, password } = req.body;
 
   await users
@@ -133,7 +132,6 @@ exports.login = async (req, res) => {
       bcrypt
         .compare(password, user.password)
         .then((isMatch) => {
-          // If passwords don't match, return error
           if (!isMatch) {
             return res.status(400).json({
               message: "Invalid password",

@@ -1,5 +1,5 @@
 const adminModel = require("../model/adminModel");
-const assignmentmodel = require("../model/AssignmentModel");
+
 exports.createAdmin = async (req, res) => {
   const admin = new adminModel(req.body);
   console.log("request Body", req.body);
