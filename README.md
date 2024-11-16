@@ -69,15 +69,7 @@ Ensure you have the following installed:
 ## 🌐 Deployment
 The application can be deployed on Render.com. Follow these steps:
 
-1. Log in to [Render](https://render.com/).
-2. Create a new **Web Service**.
-3. Connect your GitHub repository and specify the branch for deployment.
-4. Add the required environment variables in the Render dashboard.
-5. Set the following commands:
-   - **Build Command**: `npm install`
-   - **Start Command**: `npm run start`
-6. Monitor the logs for successful deployment.
-7. Access the live application through the Render-provided URL.
+1.Link : https://growthx-asp.onrender.com
 
 ---
 
